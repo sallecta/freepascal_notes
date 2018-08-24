@@ -17,7 +17,8 @@ var
   {Pointer is a reference to variable (data)}
 
   {Typed Pointer can be de-referenced directly with Integer variables }
-  ptr: ^integer;
+  //ptr: ^integer;
+  {or} ptr: PInteger;
 
   {Untyped Pointer is a simple data type that can hold the address of Any data type.
   Untyped Pointer needs further casting to target pointer type, ex. PInteger(ptrA)}
@@ -33,14 +34,16 @@ begin
   Error: Can't take the address of constant expressions}
   //ptr := addr(123);
 
-  {Error: Can't read or write variables of this type
-  Just de-referencing a Pointer variable is not sufficient.'
 
+  {De-referencing a Pointer}
+  //Writeln('ptr^:', tab2 + tab, ptr^);
+  {If Poiner is untyped (var ptr: Pointer) you get the following error:
+  "Error: Can't read or write variables of this type".
+  Just de-referencing a Pointer variable is not sufficient.
   To de-reference Pointer correctly you have to:
   - use appropriate type of pointer and data it points
   (for Integer data use PInteger or ^Integer Pointer);
-  - or cast Pointer to appropriate type (for Integer data - PInteger(ptr)} ;
-  Writeln('ptr^:', tab2 + tab, ptr^);
+  - or cast Pointer to appropriate type (for Integer data - PInteger(ptr).}
 
   {After cast, then de-reference: prints data value (20)}
   Writeln('PInteger(ptr)^:', tab2, PInteger(ptr)^);
