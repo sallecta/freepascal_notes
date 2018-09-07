@@ -59,7 +59,8 @@ begin
   INI_obj := TINIFile.Create(INI_fn);
   try
     INI_obj.WriteString(INI_Section,'DBFile','D:\DATA\base.fdb');
-	finally
+  finally
     INI_obj.Free;
-	end;
+  end;
+  
 end.
